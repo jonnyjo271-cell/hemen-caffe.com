@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hemen Coffee and Breakfast – ሄመን ቡና እና ቁርስ</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&family=Noto+Sans+Ethiopic:wght@400;500;700&family=Noto+Serif+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF3E4;--card:#FFFAF0;--ink:#2B1A12;--mute:#6F5848;--car:#C68B4E;--line:#E8D6B8;--head:#2B1A12;--t1:#F3E0BF;--t2:#E8C896;--err:#B3402A;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1B110B;--card:#28190F;--ink:#F6E9D2;--mute:#C2AA90;--car:#D79A5A;--line:#46301F;--head:#120A06;--t1:#4A3322;--t2:#6A4A2E;--err:#FF9A85;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1B110B;--card:#28190F;--ink:#F6E9D2;--mute:#C2AA90;--car:#D79A5A;--line:#46301F;--head:#120A06;--t1:#4A3322;--t2:#6A4A2E;--err:#FF9A85;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 150px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 "DM Sans","Noto Sans Ethiopic",system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--head);z-index:30}
+h1,h2,h3,h4{font-family:Fraunces,"Noto Serif Ethiopic",Georgia,serif;margin:0}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--car);outline-offset:2px}
+.hide{display:none!important}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--head);color:#FBF3E4}
+.bar{max-width:1080px;margin:auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.brand{display:flex;align-items:center;gap:10px;flex:1 1 auto;color:inherit;text-decoration:none}
+.brand svg{width:34px;height:34px;flex:none}
+.brand h1{font-size:1.15rem;line-height:1.15}
+.brand small{display:block;font:400 .78rem "DM Sans","Noto Sans Ethiopic",sans-serif;color:#E2C79C}
+nav{order:4;flex:1 1 100%;display:flex;gap:4px;overflow-x:auto}
+nav a{color:#EADBC0;text-decoration:none;padding:6px 12px;border-radius:16px;white-space:nowrap;font-weight:500}
+nav a:hover{background:#3A261A}
+.search{order:5;flex:1 1 100%;position:relative}
+.search input{width:100%;height:42px;border-radius:21px;border:0;padding:0 16px 0 40px;background:#FBF3E4;color:#2B1A12;font:inherit}
+.search svg{position:absolute;left:13px;top:12px;width:18px;height:18px;stroke:#6F5848}
+.lang{height:42px;padding:0 14px;border-radius:21px;border:1.5px solid #6B5140;background:transparent;color:#FBF3E4;font-weight:700}
+.cartbtn{display:flex;align-items:center;gap:8px;height:42px;padding:0 16px;border:0;border-radius:21px;background:#C68B4E;color:#2B1A12;font-weight:700}
+.cartbtn b{min-width:24px;height:24px;border-radius:12px;background:#2B1A12;color:#FBF3E4;display:grid;place-items:center;font-size:.85rem;padding:0 6px}
+@media(min-width:860px){.brand{flex:0 0 auto}nav{order:0;flex:1 1 auto}.search{order:0;flex:0 1 240px}}
+.tabs{max-width:1080px;margin:auto;padding:0 16px 12px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.tab{flex:none;height:38px;padding:0 16px;border-radius:19px;border:1.5px solid #6B5140;background:transparent;color:#FBF3E4;font-weight:500}
+.tab[aria-selected="true"]{background:#FBF3E4;color:#2B1A12;border-color:#FBF3E4}
+.wrap{max-width:1080px;margin:auto;padding:0 16px}
+.intro{padding:28px 0 4px}
+.intro h2{font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.15;max-width:18ch}
+.intro p{color:var(--mute);margin:10px 0 0;max-width:48ch}
+.sec h3{font-size:1.4rem;margin:28px 0 12px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.ph{height:128px;display:grid;place-items:center;font-size:56px;background:radial-gradient(circle at 30% 25%,var(--t1),var(--t2))}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h4{font-size:1.08rem}
+.card p{margin:0;color:var(--mute);font-size:.92rem;flex:1}
+.row{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.price{font-weight:700}
+.add{height:38px;padding:0 16px;border-radius:19px;border:0;background:var(--car);color:#2B1A12;font-weight:700}
+.empty{padding:40px 0;text-align:center;color:var(--mute)}
+main{padding-bottom:48px}
+footer{background:var(--head);color:#EADBC0;padding:36px 16px calc(36px + env(safe-area-inset-bottom,0px))}
+.fgrid{max-width:1080px;margin:auto;display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+footer h3{font-size:1.1rem;margin-bottom:8px;color:#E2C79C}
+footer p{margin:2px 0}
+footer a{color:#FBF3E4;font-weight:700}
+footer code,.pd code{background:#3A261A;padding:2px 8px;border-radius:6px;color:#FBF3E4}
+.ov{position:fixed;inset:0;background:rgba(20,10,5,.55);opacity:0;pointer-events:none;transition:opacity .25s;z-index:40}
+.ov.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);z-index:50;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,.25);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer.on{transform:none}
+.pane{display:flex;flex-direction:column;flex:1;min-height:0}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line)}
+.dh h2{font-size:1.35rem}
+.x{width:40px;height:40px;border-radius:20px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:1.1rem}
+.items{flex:1;overflow-y:auto;padding:4px 20px}
+.it{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.it .e{font-size:26px}.it .n{flex:1}.it .n b{display:block}.it .n span{color:var(--mute);font-size:.86rem}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:32px;height:32px;border-radius:16px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:1.1rem}
+.df{padding:14px 20px;border-top:1px solid var(--line);background:var(--card);overflow-y:auto;max-height:62vh}
+.df label.l,.df .l{display:block;font-weight:500;margin:0 0 6px}
+.df input[type=text]{width:100%;height:44px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);padding:0 12px;font:inherit}
+.pay{display:grid;gap:6px;margin-bottom:8px}
+.po{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);cursor:pointer;font-weight:500}
+.po:has(input:checked){border-color:var(--car);box-shadow:inset 0 0 0 1px var(--car)}
+.po input{accent-color:#C68B4E;width:18px;height:18px}
+.pd{font-size:.9rem;color:var(--mute);margin:0 0 6px}.shot{margin:0 0 8px}.shot input{width:100%;font:inherit;color:var(--ink)}.shot img,.ho img{max-width:100%;max-height:220px;border-radius:10px;border:1px solid var(--line);margin-top:8px;display:block}
+.tot{display:flex;justify-content:space-between;font-size:1.2rem;font-weight:700;margin:10px 0}
+.go{width:100%;height:48px;border:0;border-radius:24px;background:var(--head);color:#FBF3E4;font-weight:700}
+.err{color:var(--err);font-size:.88rem;min-height:1.2em;margin:6px 0 0}
+.ticket{flex:1;overflow-y:auto;padding:20px}
+.paper{background:var(--card);border:2px dashed var(--car);border-radius:14px;padding:18px}
+.paper h3{font-size:1.5rem}
+.chip{display:inline-block;margin:8px 6px 12px 0;padding:3px 12px;border-radius:16px;background:var(--car);color:#2B1A12;font-weight:700;font-size:.9rem}
+.paper ul{padding:0;margin:0}.paper li{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--line);list-style:none}
+.ghost{width:100%;height:44px;margin-top:10px;border-radius:22px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font-weight:500}
+/* report */
+.rp h2{font-size:1.8rem;margin:28px 0 6px}
+.rp .bar2{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}
+.rp input[type=date],.rp input[type=password]{height:42px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);padding:0 12px;font:inherit}
+.btn{height:42px;padding:0 16px;border-radius:21px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-weight:500}
+.btn.p{background:var(--car);border-color:var(--car);color:#2B1A12;font-weight:700}
+.stats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:12px 0 20px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.stat span{color:var(--mute);font-size:.9rem}.stat b{display:block;font:700 1.9rem Fraunces,Georgia,serif}
+.brk{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 16px}
+.br{padding:10px 0;border-bottom:1px solid var(--line)}.br:last-child{border:0}
+.br div{display:flex;justify-content:space-between;gap:10px}
+.meter{height:8px;border-radius:4px;background:var(--line);margin-top:6px;overflow:hidden}.meter i{display:block;height:100%;background:var(--car)}
+.hist{display:grid;gap:10px;margin-top:8px}
+.ho{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px}
+.ho div{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.ho small{color:var(--mute)}
+.note{color:var(--mute);font-size:.88rem}.login{display:grid;gap:10px;max-width:360px;margin:12px 0}.login label{display:grid;gap:4px;font-weight:500}.login input{height:44px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);padding:0 12px;font:inherit}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="#menu"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#C68B4E"/><path d="M10 16h17v7a8 8 0 0 1-8 8h-1a8 8 0 0 1-8-8z" fill="#2B1A12"/><path d="M27 18h2.5a3 3 0 0 1 0 6H27" fill="none" stroke="#2B1A12" stroke-width="2"/><path d="M15 12c0-2 2-2 2-4M20 12c0-2 2-2 2-4" stroke="#FBF3E4" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg><h1>Hemen<small data-i="sub"></small></h1></a>
+    <button class="lang" id="lang" aria-label="Language"></button>
+    <button class="cartbtn" id="open"><span data-i="order"></span> <b id="count">0</b></button>
+    <nav><a href="#menu" data-i="nMenu"></a><a href="#contact" data-i="nContact"></a><a href="#report" data-i="nReport"></a></nav>
+    <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" type="search" data-ph="search"></div>
+  </div>
+  <div class="tabs" id="tabs" role="tablist"></div>
+</header>
+
+<main id="menuView">
+  <div class="wrap" id="menu">
+    <div class="intro"><h2 data-i="heroT"></h2><p data-i="heroP"></p></div>
+    <div id="list"></div>
+  </div>
+</main>
+
+<main id="reportView" class="hide"><div class="wrap rp" id="report"></div></main>
+
+<footer id="contact">
+  <div class="fgrid">
+    <div><h3 data-i="hours"></h3><p data-i="h1"></p><p data-i="h2"></p></div>
+    <div><h3 data-i="find"></h3><p data-i="addr"></p><p><a id="tel" href=""></a></p></div>
+    <div><h3 data-i="wifi"></h3><p><span data-i="net"></span>: <code>Hemen-Guest</code></p><p><span data-i="pw"></span>: <code>hemen2026</code></p></div>
+  </div>
+</footer>
+
+<div class="ov" id="ov"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="pane" id="cartPane">
+    <div class="dh"><h2 data-i="order"></h2><div style="display:flex;gap:8px"><button class="x" id="snd" aria-label="Voice"></button><button class="x" id="close" aria-label="Close">✕</button></div></div>
+    <div class="items" id="items"></div>
+    <div class="df">
+      <label class="l" for="table" data-i="table"></label>
+      <input id="table" type="text" inputmode="numeric" maxlength="3" placeholder="12">
+      <div class="l" style="margin-top:12px" data-i="payBy"></div>
+      <div class="pay" id="pay"></div>
+      <div class="pd" id="pd"></div>
+      <div class="shot hide" id="shot"><div class="l" data-i="shot"></div><input type="file" id="file" accept="image/*"><img id="prev" class="hide" alt=""></div>
+      <p class="err" id="err" role="alert"></p>
+      <div class="tot"><span data-i="total"></span><span id="total"></span></div>
+      <button class="go" id="send" data-i="place"></button>
+    </div>
+  </div>
+  <div class="pane hide" id="ticketPane">
+    <div class="dh"><h2 data-i="summary"></h2><button class="x" id="close2" aria-label="Close">✕</button></div>
+    <div class="ticket" id="ticket"></div>
+  </div>
+</aside>
+
+<script>
+const CFG={phone:"+251911000000",phoneShow:"+251 911 000 000",telebirr:"123456",cbe:"1000 1234 56789",adminEmail:"jonnyjo271@gmail.com",adminPass:"Hemen@2026"};
+const TX={
+en:{sub:"Coffee and Breakfast",nMenu:"Menu",nContact:"Contact",nReport:"Daily Report",search:"Search the menu",order:"My Order",all:"All",coffee:"Coffee",iced:"Iced",breakfast:"Breakfast",pastries:"Pastries",add:"+ Add",added:"Added ✓",
+heroT:"Fresh coffee, warm breakfast.",heroP:"Browse, add to your order, then pay your way.",none:"Nothing matches that search. Try another word.",emptyCart:"Your order is empty. Add something from the menu.",each:"each",
+table:"Table number",total:"Total",payBy:"Payment method",cash:"Cash",telebirr:"Telebirr",cbe:"CBE Birr",cashN:"Pay in cash to your server or at the counter.",mer:"Merchant number",acc:"Account number",payN:"Send the total, then show the confirmation to your server.",
+place:"Place order",shot:"Payment screenshot",errShot:"Attach your payment screenshot before placing the order.",shotBad:"Could not read that image. Choose a photo or screenshot.",full:"This device’s storage is full, so the order was not saved to the report. Clear old orders in Daily Report.",errEmpty:"Add at least one item to your order.",errTable:"Enter your table number, for example 12.",summary:"Order summary",at:"Ordered at",show:"Please show this screen to your server.",newO:"Start a new order",edit:"Edit order",
+hours:"Opening hours",h1:"Mon–Sat: 6:30 am – 9:00 pm",h2:"Sunday: 7:30 am – 8:00 pm",find:"Find us",addr:"Bole Road, Addis Ababa",wifi:"Cafe Wi-Fi",net:"Network",pw:"Password",
+rTitle:"Daily Order Report",pinQ:"Admin sign in to view the report.",email:"Email",pass:"Password",unlock:"Sign in",bad:"Wrong email or password. Try again.",date:"Date",orders:"Orders",rev:"Revenue",brk:"Payment breakdown",hist:"Order history",noO:"No orders on this date.",lock:"Sign out",clear:"Clear all orders",sure:"Delete all saved orders on this device?",dev:"Orders are saved in this browser on this device only.",tbl:"Table",etb:"ETB"},
+am:{sub:"ቡና እና ቁርስ",nMenu:"ምናሌ",nContact:"አድራሻ",nReport:"የዕለት ሪፖርት",search:"ምናሌ ውስጥ ፈልግ",order:"ትዕዛዜ",all:"ሁሉም",coffee:"ቡና",iced:"ቀዝቃዛ",breakfast:"ቁርስ",pastries:"መጋገሪያዎች",add:"+ ጨምር",added:"ተጨምሯል ✓",
+heroT:"ትኩስ ቡና፣ ሞቅ ያለ ቁርስ።",heroP:"ምናሌውን ይመልከቱ፣ ትዕዛዝ ያክሉ፣ በሚመችዎ መንገድ ይክፈሉ።",none:"ምንም አልተገኘም። ሌላ ቃል ይሞክሩ።",emptyCart:"ትዕዛዝዎ ባዶ ነው። ከምናሌው ይጨምሩ።",each:"አንዱ",
+table:"የጠረጴዛ ቁጥር",total:"ጠቅላላ",payBy:"የመክፈያ መንገድ",cash:"ጥሬ ገንዘብ",telebirr:"ቴሌብር",cbe:"ሲቢኢ ብር",cashN:"ለአስተናጋጅ ወይም በካሽ ቆጣሪ ይክፈሉ።",mer:"የነጋዴ ቁጥር",acc:"የሂሳብ ቁጥር",payN:"ጠቅላላውን ይላኩ፣ ከዚያ ማረጋገጫውን ለአስተናጋጅ ያሳዩ።",
+place:"ትዕዛዝ አስገባ",shot:"የክፍያ ስክሪንሾት",errShot:"ትዕዛዝ ከማስገባትዎ በፊት የክፍያ ስክሪንሾት ያያይዙ።",shotBad:"ምስሉን ማንበብ አልተቻለም። ፎቶ ወይም ስክሪንሾት ይምረጡ።",full:"የመሣሪያው ማከማቻ ሞልቷል፣ ትዕዛዙ በሪፖርቱ ላይ አልተቀመጠም። በየዕለት ሪፖርት ውስጥ የቆዩ ትዕዛዞችን ያጥፉ።",errEmpty:"ቢያንስ አንድ ዕቃ ይጨምሩ።",errTable:"የጠረጴዛ ቁጥርዎን ያስገቡ፣ ለምሳሌ 12።",summary:"የትዕዛዝ ማጠቃለያ",at:"የታዘዘበት ሰዓት",show:"ይህን ማያ ለአስተናጋጅ ያሳዩ።",newO:"አዲስ ትዕዛዝ ጀምር",edit:"ትዕዛዝ አስተካክል",
+hours:"የሥራ ሰዓት",h1:"ሰኞ–ቅዳሜ፡ ጠዋት 6:30 – ምሽት 9:00",h2:"እሑድ፡ ጠዋት 7:30 – ምሽት 8:00",find:"አድራሻችን",addr:"ቦሌ መንገድ፣ አዲስ አበባ",wifi:"ዋይፋይ",net:"መረብ",pw:"የይለፍ ቃል",
+rTitle:"የዕለት የትዕዛዝ ሪፖርት",pinQ:"ሪፖርቱን ለማየት የአስተዳዳሪ መግቢያ ያስገቡ።",email:"ኢሜይል",pass:"የይለፍ ቃል",unlock:"ግባ",bad:"ኢሜይሉ ወይም የይለፍ ቃሉ ልክ አይደለም። እንደገና ይሞክሩ።",date:"ቀን",orders:"ትዕዛዞች",rev:"ገቢ",brk:"የክፍያ ዝርዝር",hist:"የትዕዛዝ ታሪክ",noO:"በዚህ ቀን ትዕዛዝ የለም።",lock:"ውጣ",clear:"ሁሉንም ትዕዛዝ አጥፋ",sure:"በዚህ መሣሪያ ላይ የተቀመጡ ትዕዛዞች በሙሉ ይጥፉ?",dev:"ትዕዛዞች የሚቀመጡት በዚህ መሣሪያ አሳሽ ላይ ብቻ ነው።",tbl:"ጠረጴዛ",etb:"ብር"}};
+const CATS=["coffee","iced","breakfast","pastries"];
+const M=[
+["coffee","Espresso","ኤስፕሬሶ","Double shot, rich crema.","ጠንካራ ድርብ ሾት።",60,"☕"],
+["coffee","Macchiato","ማኪያቶ","Espresso with a spoon of milk foam.","ኤስፕሬሶ ከትንሽ ወተት አረፋ ጋር።",75,"☕"],
+["coffee","Cappuccino","ካፑቺኖ","Espresso, milk and velvety foam.","ኤስፕሬሶ፣ ወተትና ለስላሳ አረፋ።",95,"☕"],
+["coffee","Jebena Buna","የጀበና ቡና","Fresh coffee brewed in a clay jebena.","በባህላዊ ጀበና የተፈላ ትኩስ ቡና።",70,"🫖"],
+["iced","Iced Latte","አይስ ላቴ","Espresso over cold milk and ice.","ኤስፕሬሶ ከቀዝቃዛ ወተትና በረዶ ጋር።",110,"🧊"],
+["iced","Caramel Cold Brew","ካራሜል ኮልድ ብሩ","Steeped 18 hours, caramel drizzle.","18 ሰዓት የተነከረ፣ በካራሜል።",125,"🥤"],
+["iced","Fresh Mango Juice","ትኩስ የማንጎ ጭማቂ","Ripe mango, blended thick.","የበሰለ ማንጎ፣ ወፍራም ጭማቂ።",90,"🥭"],
+["iced","Iced Chocolate","አይስ ቸኮሌት","Dark cocoa, milk and ice.","ጥቁር ቸኮሌት፣ ወተትና በረዶ።",105,"🍫"],
+["breakfast","Ful Medames","ፉል","Slow-cooked fava beans with bread.","በዘይት የተሰራ ባቄላ ከዳቦ ጋር።",150,"🫘"],
+["breakfast","Firfir","ፍርፍር","Injera in spiced berbere sauce.","እንጀራ በበርበሬ ወጥ የተፈተፈተ።",160,"🍲"],
+["breakfast","Scrambled Eggs","የተፈተፈተ እንቁላል","Three eggs, toast and tomato.","ሦስት እንቁላል፣ ቶስትና ቲማቲም።",140,"🍳"],
+["breakfast","Honey Pancakes","የማር ፓንኬክ","Three pancakes, butter and honey.","ሦስት ፓንኬክ ከቅቤና ማር ጋር።",130,"🥞"],
+["pastries","Butter Croissant","ክሮሳንት","Flaky, baked every morning.","በየጠዋቱ የሚጋገር ቅቤ ክሮሳንት።",70,"🥐"],
+["pastries","Cinnamon Roll","ቀረፋ ሮል","Soft roll with caramel glaze.","ለስላሳ ሮል በካራሜል ብርጭቆ።",85,"🥮"],
+["pastries","Chocolate Muffin","ቸኮሌት ማፊን","Double chocolate, moist crumb.","ድርብ ቸኮሌት ለስላሳ ማፊን።",75,"🧁"],
+["pastries","Banana Bread","የሙዝ ዳቦ","Warm slice with a hint of nutmeg.","ትኩስ ቁራጭ በትንሽ ቅመም።",80,"🍞"]
+].map((r,i)=>({id:i,cat:r[0],n:[r[1],r[2]],d:[r[3],r[4]],p:r[5],e:r[6]}));
+
+const $=id=>document.getElementById(id);
+const mem={};
+const S={get(k,d){try{const v=localStorage.getItem(k);if(v!==null)return JSON.parse(v)}catch(e){}return k in mem?mem[k]:d},set(k,v){mem[k]=v;try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}};
+let lang=S.get("hemen_lang","en"),cat="all",term="",pay="cash",unlocked=false,rdate="";
+const cart=new Map();let shotData="";let voiceOn=true;
+const T=k=>TX[lang][k]||k, L=()=>lang==="am"?1:0;
+const etb=n=>n.toLocaleString("en-US")+" "+T("etb");
+const dkey=ts=>new Date(ts).toLocaleDateString("en-CA");
+const hm=ts=>new Date(ts).toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});
+const orders=()=>S.get("hemen_orders",[]);
+const PAYN=()=>({cash:T("cash"),telebirr:T("telebirr"),cbe:T("cbe")});
+
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i]").forEach(e=>e.textContent=T(e.dataset.i));
+  document.querySelectorAll("[data-ph]").forEach(e=>e.placeholder=T(e.dataset.ph));
+  $("lang").textContent=lang==="en"?"አማርኛ":"English";
+  $("tel").textContent="📞 "+CFG.phoneShow;$("tel").href="tel:"+CFG.phone;
+  tabs();menu();cartR();payR();if(!$("reportView").classList.contains("hide"))report();
+}
+function tabs(){$("tabs").innerHTML=["all",...CATS].map(c=>`<button class="tab" role="tab" aria-selected="${c===cat}" data-c="${c}">${T(c)}</button>`).join("")}
+function menu(){
+  const t=term.trim().toLowerCase();
+  const l=M.filter(m=>(cat==="all"||m.cat===cat)&&(!t||(m.n.join(" ")+" "+m.d.join(" ")).toLowerCase().includes(t)));
+  if(!l.length){$("list").innerHTML=`<div class="empty">${T("none")}</div>`;return}
+  $("list").innerHTML=CATS.map(c=>{const it=l.filter(m=>m.cat===c);if(!it.length)return"";
+    return `<section class="sec">${cat==="all"?`<h3>${T(c)}</h3>`:'<div style="height:16px"></div>'}<div class="grid">${it.map(m=>`<article class="card"><div class="ph" aria-hidden="true">${m.e}</div><div class="body"><h4>${m.n[L()]}</h4><p>${m.d[L()]}</p><div class="row"><span class="price">${etb(m.p)}</span><button class="add" data-id="${m.id}">${T("add")}</button></div></div></article>`).join("")}</div></section>`}).join("");
+}
+function sum(){let n=0,c=0;cart.forEach((q,id)=>{n+=q*M[id].p;c+=q});return[n,c]}
+function cartR(){
+  const[n,c]=sum();$("count").textContent=c;$("total").textContent=etb(n);
+  $("items").innerHTML=cart.size?[...cart].map(([id,q])=>{const m=M[id];return `<div class="it"><span class="e">${m.e}</span><div class="n"><b>${m.n[L()]}</b><span>${etb(m.p)} ${T("each")}</span></div><div class="qty"><button data-d="-1" data-id="${id}" aria-label="−">−</button><b>${q}</b><button data-d="1" data-id="${id}" aria-label="+">+</button></div></div>`}).join(""):`<div class="empty">${T("emptyCart")}</div>`;
+}
+function payInfo(p){return p==="cash"?T("cashN"):`${T("payN")}<br>${p==="telebirr"?T("mer")+": <code>"+CFG.telebirr+"</code>":T("acc")+": <code>"+CFG.cbe+"</code>"}`}
+function payR(){
+  $("pay").innerHTML=["cash","telebirr","cbe"].map(p=>`<label class="po"><input type="radio" name="pay" value="${p}" ${p===pay?"checked":""}>${PAYN()[p]}</label>`).join("");
+  $("pd").className="pd pd";$("pd").innerHTML=payInfo(pay);$("shot").classList.toggle("hide",pay==="cash");
+}
+function drawer(on){
+  $("drawer").classList.toggle("on",on);$("ov").classList.toggle("on",on);$("drawer").setAttribute("aria-hidden",!on);
+  if(on){showCart();cartR();$("close").focus()}
+}
+function showCart(){$("cartPane").classList.remove("hide");$("ticketPane").classList.add("hide")}
+
+function sndR(){$("snd").textContent=voiceOn?"🔊":"🔇";$("snd").setAttribute("aria-pressed",voiceOn)}
+function chime(){try{const a=new (window.AudioContext||window.webkitAudioContext)(),t=a.currentTime;[784,1047].forEach((f,i)=>{const o=a.createOscillator(),g=a.createGain(),s=t+i*.18;o.frequency.value=f;g.gain.setValueAtTime(.0001,s);g.gain.exponentialRampToValueAtTime(.25,s+.02);g.gain.exponentialRampToValueAtTime(.0001,s+.4);o.connect(g);g.connect(a.destination);o.start(s);o.stop(s+.45)})}catch(e){}}
+function say(x){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();const am=lang==="am"&&speechSynthesis.getVoices().some(v=>v.lang.toLowerCase().startsWith("am")),u=new SpeechSynthesisUtterance(am?x[1]:x[0]);u.lang=am?"am-ET":"en-US";speechSynthesis.speak(u)}catch(e){}}
+function announce(num,t,n){if(!voiceOn)return;chime();say([`Order ${num} received for table ${t}. Total ${n} birr.`,`ትዕዛዝ ቁጥር ${num} ተቀብለናል። ጠረጴዛ ${t}። ጠቅላላ ${n} ብር።`])}
+function report(){
+  const R=$("report");
+  if(!unlocked){R.innerHTML=`<h2>${T("rTitle")}</h2><p>${T("pinQ")}</p><div class="login"><label>${T("email")}<input type="email" id="em" autocomplete="username"></label><label>${T("pass")}<input type="password" id="pin" autocomplete="current-password"></label><button class="btn p" id="unl">${T("unlock")}</button></div><p class="err" id="perr" role="alert"></p>`;
+    const go=()=>{if($("em").value.trim().toLowerCase()===CFG.adminEmail&&$("pin").value===CFG.adminPass){unlocked=true;report()}else $("perr").textContent=T("bad")};
+    $("unl").onclick=go;[$("em"),$("pin")].forEach(i=>i.onkeydown=e=>{if(e.key==="Enter")go()});return}
+  rdate=rdate||dkey(Date.now());
+  const day=orders().filter(o=>dkey(o.ts)===rdate).sort((a,b)=>b.ts-a.ts);
+  const rev=day.reduce((s,o)=>s+o.total,0);
+  const by={cash:[0,0],telebirr:[0,0],cbe:[0,0]};day.forEach(o=>{by[o.pay][0]++;by[o.pay][1]+=o.total});
+  R.innerHTML=`<h2>${T("rTitle")}</h2><div class="bar2"><label>${T("date")} <input type="date" id="rd" value="${rdate}"></label><button class="btn" id="lk">${T("lock")}</button></div>
+  <div class="stats"><div class="stat"><span>${T("orders")}</span><b>${day.length}</b></div><div class="stat"><span>${T("rev")}</span><b>${etb(rev)}</b></div></div>
+  <h3>${T("brk")}</h3><div class="brk">${Object.keys(by).map(p=>`<div class="br"><div><span>${PAYN()[p]} · ${by[p][0]}</span><b>${etb(by[p][1])}</b></div><div class="meter"><i style="width:${rev?Math.round(by[p][1]/rev*100):0}%"></i></div></div>`).join("")}</div>
+  <h3 style="margin-top:22px">${T("hist")}</h3><div class="hist">${day.length?day.map(o=>`<div class="ho"><div><b>#${String(o.n).padStart(3,"0")} · ${hm(o.ts)} · ${T("tbl")} ${o.table}</b><b>${etb(o.total)}</b></div><div><small>${o.items.map(i=>i.q+" × "+M[i.id].n[L()]).join(", ")}</small><small>${PAYN()[o.pay]}</small></div>${o.shot?`<img src="${o.shot}" alt="${T("shot")}">`:""}</div>`).join(""):`<p class="empty">${T("noO")}</p>`}</div>
+  <p class="note" style="margin-top:18px">${T("dev")}</p><button class="btn" id="clr">${T("clear")}</button>`;
+  $("rd").onchange=e=>{rdate=e.target.value||dkey(Date.now());report()};
+  $("lk").onclick=()=>{unlocked=false;report()};
+  $("clr").onclick=()=>{if(confirm(T("sure"))){S.set("hemen_orders",[]);report()}};
+}
+function route(){
+  const rep=location.hash==="#report";
+  $("menuView").classList.toggle("hide",rep);$("reportView").classList.toggle("hide",!rep);
+  $("tabs").classList.toggle("hide",rep);
+  if(rep){report();window.scrollTo(0,0)}
+}
+$("tabs").onclick=e=>{const b=e.target.closest(".tab");if(b){cat=b.dataset.c;tabs();menu()}};
+$("q").oninput=e=>{term=e.target.value;if(location.hash==="#report")location.hash="#menu";menu()};
+$("list").onclick=e=>{const b=e.target.closest(".add");if(!b)return;const id=+b.dataset.id;cart.set(id,(cart.get(id)||0)+1);cartR();b.textContent=T("added");setTimeout(()=>b.textContent=T("add"),900)};
+$("items").onclick=e=>{const b=e.target.closest("[data-d]");if(!b)return;const id=+b.dataset.id,q=(cart.get(id)||0)+ +b.dataset.d;q<=0?cart.delete(id):cart.set(id,q);cartR()};
+$("pay").onchange=e=>{pay=e.target.value;$("pd").innerHTML=payInfo(pay);$("shot").classList.toggle("hide",pay==="cash")};
+$("file").onchange=e=>{const f=e.target.files[0];shotData="";$("prev").classList.add("hide");if(!f)return;const im=new Image(),u=URL.createObjectURL(f);im.onload=()=>{const s=Math.min(1,720/im.width),c=document.createElement("canvas");c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext("2d").drawImage(im,0,0,c.width,c.height);shotData=c.toDataURL("image/jpeg",.6);$("prev").src=shotData;$("prev").classList.remove("hide");$("err").textContent="";URL.revokeObjectURL(u)};im.onerror=()=>{$("err").textContent=T("shotBad")};im.src=u};
+$("lang").onclick=()=>{lang=lang==="en"?"am":"en";S.set("hemen_lang",lang);applyLang()};
+$("open").onclick=()=>drawer(true);$("close").onclick=$("close2").onclick=$("ov").onclick=()=>drawer(false);
+document.onkeydown=e=>{if(e.key==="Escape")drawer(false)};
+window.onhashchange=route;
+$("send").onclick=()=>{
+  const t=$("table").value.trim();
+  if(!cart.size){$("err").textContent=T("errEmpty");return}
+  if(!/^\d{1,3}$/.test(t)){$("err").textContent=T("errTable");$("table").focus();return}
+  if(pay!=="cash"&&!shotData){$("err").textContent=T("errShot");return}
+  $("err").textContent="";
+  const[n]=sum(),ts=Date.now(),all=orders(),num=all.filter(o=>dkey(o.ts)===dkey(ts)).length+1;
+  const o={ts,n:num,table:t,pay,total:n,shot:pay==="cash"?"":shotData,items:[...cart].map(([id,q])=>({id,q,p:M[id].p}))};
+  all.push(o);const saved=S.set("hemen_orders",all);
+  $("ticket").innerHTML=`<div class="paper"><h3>${T("tbl")} ${t}</h3><span class="chip">#${String(num).padStart(3,"0")}</span><span class="chip">${PAYN()[pay]}</span><p style="margin:0 0 8px;color:var(--mute)">${T("at")} ${hm(ts)}</p><ul>${o.items.map(i=>`<li><span>${i.q} × ${M[i.id].n[L()]}</span><span>${etb(i.q*i.p)}</span></li>`).join("")}</ul><div class="tot"><span>${T("total")}</span><span>${etb(n)}</span></div><p class="pd" style="margin:0">${payInfo(pay)}</p>${o.shot?`<img src="${o.shot}" alt="${T("shot")}" style="max-width:100%;border-radius:10px;margin-top:10px">`:""}<p style="margin:10px 0 0">${T("show")}</p>${saved?"":`<p class="err">${T("full")}</p>`}</div><button class="ghost" id="nw">${T("newO")}</button>`;
+  $("cartPane").classList.add("hide");$("ticketPane").classList.remove("hide");announce(num,t,n);
+  $("nw").onclick=()=>{cart.clear();$("table").value="";shotData="";$("file").value="";$("prev").classList.add("hide");cartR();drawer(false)};
+};
+$("snd").onclick=()=>{voiceOn=!voiceOn;S.set("hemen_voice",voiceOn);sndR();if(voiceOn)chime()};
+voiceOn=S.get("hemen_voice",true);
+applyLang();route();sndR();
+</script>
+</body>
+</html>
